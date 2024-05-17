@@ -26,10 +26,11 @@ public class ReadFile {
                 data.add(line);
             }
         }catch(IOException e){
-            System.out.println("Nope");   
+            System.out.println("Nope" + e.getMessage());   
         }finally{
             try{
                 if(fileReader != null){
+                    System.out.println("Si cierra pai");
                     fileReader.close();
                 }
             }catch(IOException e2){

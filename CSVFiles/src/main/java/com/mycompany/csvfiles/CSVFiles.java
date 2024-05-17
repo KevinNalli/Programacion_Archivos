@@ -16,10 +16,13 @@ public class CSVFiles {
         File file = new File("./Base_de_Datos.csv");
         ReadFile readfile = new ReadFile(file);
         List<String> data = readfile.loadData();
+        
+        
         for(String line:data){
             String[] splited = line.split(";");
             System.out.println("Hola " +splited[1] + " " + splited[2] + " tu codigo es: " +splited[0]);
         }
+        
         System.out.println("Escribe un nuevo codigo");
         String[] person = new String[3];
         person[0] = cap.nextLine();
@@ -28,8 +31,10 @@ public class CSVFiles {
         System.out.println("Escribe un nuevo Apellido");
         person[2] = cap.nextLine();
         
-        WriteFile writer = new WriteFile(file);
+        WriteFile writer = new WriteFile("./Base_de_Datos.csv");
+        
         writer.Write(person);
+        readfile = new ReadFile(file);
         data = readfile.loadData();
         for(String line:data){
             String[] splited = line.split(";");
